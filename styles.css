@@ -1,17 +1,34 @@
 body {
-  margin: 0;
+  /* margin: 0; */
   background-color: #181719;
-  font-family: 'Crimson Pro', serif;
-  font-family: 'Lora', serif;
   font-family: 'Montserrat', sans-serif;
   color: #FFF;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
-
+/* 
+.grid-container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10% 30% 55% 5%;
+  grid-template-areas: 
+    "nav"
+    "main-content"
+    "portfolio"
+    "footer";
+} */
 /* ---------- HEADER ----------- */
 
 
 /* ---------- MAIN CONTENT ----------- */
+nav {
+  grid-area: nav;
+  display: block;
+  width: 100vw;
+  padding: 0 1.5%;
+}
+
 nav h1 {
   font-family: 'Crimson Pro', serif;
   font-size: 14px;
@@ -34,11 +51,17 @@ nav a {
   text-decoration: none;
 }
 
+.main-content {
+  grid-area: main-content;
+  padding: 1.8%;
+}
+
 .title {
   font-family: 'Lora', serif;
   font-size: 36px;
   font-weight: 500;
   line-height: 46px;
+  margin-top: 5px;
   margin-left: 12px;
 }
 
@@ -50,7 +73,7 @@ nav a {
   width: 70%;
 }
 
-div a {
+.main-content a {
   color: #FFF;
   font-size: 14px;
   font-weight: 700;
@@ -58,17 +81,27 @@ div a {
   margin-left: 12px;
   text-decoration: none;
 }
+
+.portfolio {
+  grid-area: portfolio;
+  position: relative;
+}
+
 .portfolio-img {
   width: 93%;
+  /* max-width: 90%; */
   margin-top: 30px;
-  margin-left: 12px;
+  /* margin-left: 12px; */
+  padding: 0 3.3%;
 }
 
 .card-component {
   background-color: #181719;
   /* border: 1px solid red; */
-  width: 75%;
+  width: 80%;
+  max-width: 410px;
   height: 25vh;
+  max-height: 189px;
   display: grid;
   grid-template-columns: 20% 80%;
   grid-template-rows: 20% 20% 60%;
@@ -78,7 +111,7 @@ div a {
     "img-description img-description";
   position: relative;
   left: 15%;
-  bottom: 55px;
+  bottom: 50px;
   box-shadow: 0px 4px 4px 0px #00000040;
 }
 
@@ -125,12 +158,91 @@ div a {
 }
 /* ---------- FOOTER ----------- */
 footer {
+  grid-area: footer;
+  color: #A9A9A9;
   font-size: 14px;
   font-weight: 500;
   line-height: 17px;
   text-align: center;
+  position: relative;
+  top: 30px;
 }
 
 footer a {
-  margin-left: 0;
+  text-decoration: none;
+  color: #A9A9A9;
+  font-weight: 700;
+}
+
+@media screen and (min-width:1024px){
+  .grid-container {
+    display: grid;
+    height: 95vh;
+    grid-template-columns: 45% 50%;
+    grid-template-rows: 15% 80% 5%;
+    grid-template-areas: 
+      "nav nav"
+      "main-content portfolio"
+      "footer footer";
+  }
+  
+  nav {
+    padding: 0 6%;
+  }
+  .main-content {
+    padding: 20% 6%;
+  }
+
+  .title {
+    font-family: 'Lora', serif;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 61px;
+    margin: auto 0;
+    margin-left: 12px;
+  }  
+
+  .main-description {
+    font-size: 24px;
+    line-height: 29px;
+    width: 85%;
+    margin-top: 12%;
+    margin-bottom: 12%;
+  }
+
+  .main-content a {
+    font-size: 18px;
+    line-height: 22px;
+    text-decoration: none;
+  }
+  
+  .portfolio {
+    justify-content: right;
+  }
+
+  .portfolio-img {
+    width: 90%;
+    padding-left: 0;
+  }
+
+  .card-component {
+    background-color: #181719;
+    /* border: 1px solid red; */
+    width: 80%;
+    max-width: 410px;
+    height: 25vh;
+    max-height: 189px;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 20% 20% 60%;
+    grid-template-areas:
+      "img name"
+      "img role"
+      "img-description img-description";
+    margin-left: 10%;
+    position: relative;
+    bottom: 80px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+  }
+
 }
